@@ -1,3 +1,11 @@
+const ghPages = require('gh-pages');
+const path = require('path');
+
+function deploy(cb) {
+  ghPages.publish(path.join(process.cwd(), './dist'), cb);
+}
+exports.deploy = deploy;
+
 // Определяем переменную "preprocessor"
 let preprocessor = "scss"; // Выбор препроцессора в проекте - sass или less
 
