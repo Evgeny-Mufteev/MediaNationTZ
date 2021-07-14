@@ -74,13 +74,12 @@ text-align: left;
 margin-bottom: 8px;
 }
 
-.select-city {
-  margin-bottom: 40px;
+.feedback__info {
+  padding: 36px 0 75px;
 }
 
-
 .label__text {
-font-size: 1.1em;
+font-size: 1.14em;
 font-style: normal;
 font-weight: 400;
 line-height: 29px;
@@ -88,7 +87,21 @@ letter-spacing: 0px;
 text-align: left;
 }
 
+.select-wrap {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 40px;
+    width: 10px;
+    height: 10px;
+    background: gray;
+  }
+}
+
 .select {
+  // width: 100%;
   border: none;
   box-shadow: none;
   outline: none;
@@ -98,6 +111,7 @@ text-align: left;
   cursor: pointer;
   border-bottom: 1px dashed;
   font-size: 1.7em;
+
 }
 .option {
   color: #000;
@@ -117,16 +131,10 @@ text-align: left;
   display: flex;
   flex-direction: column;
   max-width: 614px;
-}
-
-.feddback-form__left::-webkit-input-placeholder {
-    color: #909090;
-    font-family: 'Montserrat';
+  padding-right: 20px;
 }
 
 /* изменение цвета  placeholder-а*/
-.feddback-form__left
-
 .feedback__input {
   height: 91px;
   margin-bottom: 13px;
@@ -134,21 +142,27 @@ text-align: left;
   outline: none;
   border: none;
   border-bottom: 2px solid #F4F5F7;
-  color: #909090;
-}
-
-.feedback__input:focus {
+  color: #000;
+  font-size: 1.71em;
+  &::-webkit-input-placeholder {
+    color: #909090;
+    font-family: 'Montserrat';
+  }
+  &:focus {
     border-bottom: 2px solid #D3232A;
   }
+}
 
 .message {
+  font-family: 'Montserrat';
   height: 120px;
-  padding-top: 14px;
+  padding-top: 60px;
   padding-bottom: 14px;
   resize: none;
   border: none;
-  border-bottom: 2px solid #F4F5F7;
-
+  border-bottom: 2px solid #f4f5f7;
+  outline: 0;
+  font-size: 1.71em;
   &:focus {
     border: none;
     border-bottom: 2px solid #D3232A;
@@ -159,32 +173,19 @@ text-align: left;
   color: #909090;
   height: 91px;
   margin-bottom: 13px;
+  padding-top: 34px;
   border-bottom: 2px solid #F4F5F7;
 }
 
 .form__select {
   border: none;
-}
-
-#upload-btn {
-  font-family: Montserrat;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px;
-  letter-spacing: 0em;
-  text-align: left;
-  border: none;
-  background: none;
-  cursor: pointer;
+  color: #909090;
+  font-size: 1.71em;
+  appearance: none;
 }
 
 .file-selection {
     margin: 30px 0 128px;
-}
-
-.politics {
-    margin: 32px 0;
 }
 
 /* Checkbox */
@@ -205,33 +206,32 @@ text-align: left;
     font-size: 1rem;
     color: #444;
     cursor: pointer;
-}
 
-.checkbox__label:before {
-    content: "";
-    display: block;
-    width: 16px;
-    height: 16px;
+    &:before {
+      content: "";
+      display: block;
+      width: 16px;
+      height: 16px;
 
-    border: 1px solid #ccc;
-    background-color: #fff;
-    border-radius: 2px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      border-radius: 2px;
 
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
 
-    transition: background .1s linear, border .1s linear;
-}
+      transition: background .1s linear, border .1s linear;
+  }
 
-.checkbox__label:after {
+  &:after {
     content: "";
     display: block;
     width: 12px;
     height: 12px;
 
-    background: url("check.svg") no-repeat;
+    background: url("../images/dest/check.svg") no-repeat;
     background-size: 12px 12px;
     opacity: 0;
 
@@ -241,6 +241,8 @@ text-align: left;
     z-index: 2;
 
     transition: opacity .1s linear;
+  }
+
 }
 
 .checkbox__input:checked + .checkbox__label:before {
@@ -262,16 +264,14 @@ text-align: left;
     font-size: 1.2em;
     line-height: 32.4px;
     cursor: pointer;
-}
-.btn:focus {
-  background: #b91f24;
+    &:focus {
+      background: #b91f24;
+    }
 }
 
 
 /* Стили для подложки */
-
 .overlay {
-
   /* Скрываем подложку  */
   opacity: 0;
   visibility: hidden;
@@ -286,28 +286,19 @@ text-align: left;
   transition: .3s all;
 }
 
-
 /* Стили для модальных окон */
-
 .modal {
-
-  /* Скрываем окна  */
   opacity: 0;
   visibility: hidden;
-
-
-  /*  Установаем ширину окна  */
   width: 100%;
   max-width: 800px;
-
-  /*  Центрируем и задаем z-index */
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 30; /* Должен быть выше чем у подложки*/
+  z-index: 30;
 
-  /*  Побочные стили   */
+
   box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2);
   text-align: center;
   padding: 30px;
@@ -315,9 +306,6 @@ text-align: left;
   background-color: #fff;
   transition: 0.3s all;
 }
-
-
-/* Стили для активных классов подложки и окна */
 
 .modal.active,
 .overlay.active{
@@ -327,7 +315,6 @@ text-align: left;
 
 
 /* Стили для кнопки закрытия */
-
 .modal__cross {
   width: 15px;
   height: 15px;
@@ -349,12 +336,25 @@ text-align: left;
 
 .map-container {
   position: relative;
+  max-width: 579px;
+}
+
+.maps-container__image {
+  max-width: 100%;
+  height: auto;
+}
+
+.maps-container__geo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .maps-container__adress {
-    position: absolute;
-    top: 262px;
-    left: 186px;
     background: #fff;
     padding: 0 12px;
     font-size: 1.07em;
@@ -363,18 +363,19 @@ text-align: left;
     border-radius: 4px;
     font-family: 'Montserrat';
     text-align: center;
+    white-space: nowrap;
 }
 
 .maps-container__icon {
-    position: absolute;
-    top: 146px;
-    left: 252px;
+    padding-bottom: 16px;
 }
 
 .сontacts {
     display: flex;
     flex-direction: column;
-    max-width: 548px;
+    max-width: 579px;
+    box-shadow: 0px 4px 40px 0px #0000000d;
+    border-radius: 5px;
 
 }
 
@@ -407,12 +408,8 @@ text-align: left;
     font-size: 1.14em;
     color: #737373;
     margin-left: 48px;
+    margin-bottom: 48px;
 }
-
-
-
-
-
 
  /* Адаптив */
 @media only screen and (max-width: 1279px) {
@@ -420,22 +417,129 @@ text-align: left;
 
 
 @media only screen and (max-width: 1023px) {
+
+  .contacts__phone {
+    font-size: 1.71em;
+  }
+
+  .feedback__input,
+  .form__select,
+  .message {
+    font-size: 1.71em;
+  }
+
 }
 
 @media only screen and (max-width: 767px) {
+
+  .title {
+    font-size: 2.0em;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feddback-form,
+  .feddback-info {
+    width: 100%;
+  }
+
+  .feddback-form__left {
+    max-width: 100%;
+    padding-right: 0;
+  }
+
+  .select-wrap::before {
+    right: 0px;
+  }
+
+
+  .feddback-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .сontacts {
+    width: 100%;
+  }
+
+  .btn {
+    margin-bottom: 32px;
+  }
+
 }
 
 @media only screen and (max-width: 641px) {
+
+  .maps-container__icon {
+    width: 46px;
+  }
+
+  .contacts__title {
+    font-size: 1.42em;
+    margin: 24px 0 16px 24px;
+  }
+
+  .contacts__phone {
+    font-size: 1.71em;
+    line-height: 0;
+    margin-left: 24px;
+  }
+
+  .contacts__email{
+    font-size: 1.42em;
+    margin-left: 24px;
+  }
+
+  .contacts__works-time {
+    font-size: 0.85em;
+    margin-left: 24px;
+  }
+
+  .modal {
+    width: 80%;
+  }
 }
 
 @media only screen and (max-width: 481px) {
+
+  .title {
+    font-size: 1.71em;
+    line-height: 33px;
+    white-space: nowrap;
+  }
+
+  .contacts__title {
+    margin: 24px 0 16px 24px;
+  }
+
+  .feedback.message {
+    overflow: hidden;
+  }
+
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 375px) {
+  .title {
+    font-size: 1.71em;
+    line-height: 33px;
+    white-space: normal;
+  }
+
+  .label__text {
+    font-size: 1.14em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0;
+    text-align: left;
+  }
+
 }
-
-
-
 
  /* END Адаптив */
 
