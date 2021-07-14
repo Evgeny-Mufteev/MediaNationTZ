@@ -1,0 +1,442 @@
+@import 'normalize';
+
+@font-face {
+  font-display: swap;
+  font-family: 'Montserrat';
+  src: local('Montserrat-Medium'), url('../fonts/Montserrat/Montserrat-Medium.woff2') format('woff2'), url('../fonts/Montserrat/Montserrat-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Montserrat';
+  src: local('Montserrat-Regular'), url('../fonts/Montserrat/Montserrat-Regular.woff2') format('woff2'), url('../fonts/Montserrat/Montserrat-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Общие стили */
+
+  * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  *::before,  *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Montserrat', 'Arial', 'Helvetica', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    background: #fff;
+  }
+
+  body.lock {
+    overflow: hidden;
+  }
+
+  h1,  h2,  h3,  h4,  h5,  h6 {
+    margin: 0;
+  }
+
+  p {
+    margin:0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+/* END Общие стили*/
+
+/* feedback */
+
+.title {
+font-size: 2.8em;
+font-style: normal;
+font-weight: 500;
+line-height: 72px;
+letter-spacing: 0px;
+text-align: left;
+margin-bottom: 8px;
+}
+
+.select-city {
+  margin-bottom: 40px;
+}
+
+
+.label__text {
+font-size: 1.1em;
+font-style: normal;
+font-weight: 400;
+line-height: 29px;
+letter-spacing: 0px;
+text-align: left;
+}
+
+.select {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  color: rgba(211, 35, 42, 1);
+  font-size: 1.5em;
+  padding: 0;
+  cursor: pointer;
+  border-bottom: 1px dashed;
+  font-size: 1.7em;
+}
+.option {
+  color: #000;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.feddback-form,
+.feddback-info {
+  width: 50%;
+}
+
+.feddback-form__left {
+  display: flex;
+  flex-direction: column;
+  max-width: 614px;
+}
+
+.feddback-form__left::-webkit-input-placeholder {
+    color: #909090;
+    font-family: 'Montserrat';
+}
+
+/* изменение цвета  placeholder-а*/
+.feddback-form__left
+
+.feedback__input {
+  height: 91px;
+  margin-bottom: 13px;
+  background-color: #fff;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #F4F5F7;
+  color: #909090;
+}
+
+.feedback__input:focus {
+    border-bottom: 2px solid #D3232A;
+  }
+
+.message {
+  height: 120px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  resize: none;
+  border: none;
+  border-bottom: 2px solid #F4F5F7;
+
+  &:focus {
+    border: none;
+    border-bottom: 2px solid #D3232A;
+  }
+}
+
+.select-profession {
+  color: #909090;
+  height: 91px;
+  margin-bottom: 13px;
+  border-bottom: 2px solid #F4F5F7;
+}
+
+.form__select {
+  border: none;
+}
+
+#upload-btn {
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.file-selection {
+    margin: 30px 0 128px;
+}
+
+.politics {
+    margin: 32px 0;
+}
+
+/* Checkbox */
+.checkbox {
+    position: relative;
+    margin: 32px 0 24px;
+}
+
+.checkbox__input {
+    -webkit-appearance: none;
+    appearance: none;
+    position: absolute;
+}
+
+.checkbox__label {
+    padding-left: 25px;
+
+    font-size: 1rem;
+    color: #444;
+    cursor: pointer;
+}
+
+.checkbox__label:before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 2px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    transition: background .1s linear, border .1s linear;
+}
+
+.checkbox__label:after {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+
+    background: url("check.svg") no-repeat;
+    background-size: 12px 12px;
+    opacity: 0;
+
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    z-index: 2;
+
+    transition: opacity .1s linear;
+}
+
+.checkbox__input:checked + .checkbox__label:before {
+    background-color: #000000;
+    border-color: #000000;
+}
+
+.checkbox__input:checked + .checkbox__label:after {
+    opacity: 1;
+}
+
+
+.btn {
+    padding: 8px 40px;
+    border: none;
+    background: #D3232A;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.2em;
+    line-height: 32.4px;
+    cursor: pointer;
+}
+.btn:focus {
+  background: #b91f24;
+}
+
+
+/* Стили для подложки */
+
+.overlay {
+
+  /* Скрываем подложку  */
+  opacity: 0;
+  visibility: hidden;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 20;
+  transition: .3s all;
+}
+
+
+/* Стили для модальных окон */
+
+.modal {
+
+  /* Скрываем окна  */
+  opacity: 0;
+  visibility: hidden;
+
+
+  /*  Установаем ширину окна  */
+  width: 100%;
+  max-width: 800px;
+
+  /*  Центрируем и задаем z-index */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30; /* Должен быть выше чем у подложки*/
+
+  /*  Побочные стили   */
+  box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2);
+  text-align: center;
+  padding: 30px;
+  border-radius: 3px;
+  background-color: #fff;
+  transition: 0.3s all;
+}
+
+
+/* Стили для активных классов подложки и окна */
+
+.modal.active,
+.overlay.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* Стили для кнопки закрытия */
+
+.modal__cross {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  fill: #444;
+  cursor: pointer;
+}
+
+.js-open-modal {
+    color: #D3232A;
+}
+
+ /* END Модальное окно */
+
+
+/* карта */
+
+.map-container {
+  position: relative;
+}
+
+.maps-container__adress {
+    position: absolute;
+    top: 262px;
+    left: 186px;
+    background: #fff;
+    padding: 0 12px;
+    font-size: 1.07em;
+    line-height: 32px;
+    letter-spacing: 0.42px;
+    border-radius: 4px;
+    font-family: 'Montserrat';
+    text-align: center;
+}
+
+.maps-container__icon {
+    position: absolute;
+    top: 146px;
+    left: 252px;
+}
+
+.сontacts {
+    display: flex;
+    flex-direction: column;
+    max-width: 548px;
+
+}
+
+.contacts__title {
+    font-size: 1.71em;
+    font-weight: 500;
+    line-height: 43.2px;
+    margin: 48px 0 24px 48px;
+}
+
+.contacts__phone {
+    text-decoration: none;
+    color: #000;
+    font-size: 2.85em;
+    font-weight: 400;
+    line-height: 56px;
+    margin-bottom: 16px;
+    margin-left: 48px;
+}
+
+.contacts__email {
+    text-decoration: none;
+    font-size: 1.71em;
+    color: #D3232A;
+    margin-bottom: 16px;
+    margin-left: 48px;
+}
+
+.contacts__works-time {
+    font-size: 1.14em;
+    color: #737373;
+    margin-left: 48px;
+}
+
+
+
+
+
+
+ /* Адаптив */
+@media only screen and (max-width: 1279px) {
+}
+
+
+@media only screen and (max-width: 1023px) {
+}
+
+@media only screen and (max-width: 767px) {
+}
+
+@media only screen and (max-width: 641px) {
+}
+
+@media only screen and (max-width: 481px) {
+}
+
+@media only screen and (max-width: 320px) {
+}
+
+
+
+
+ /* END Адаптив */
+
+
